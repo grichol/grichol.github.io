@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My JavaScript Project</title>
+</head>
+<body>
+	
+	<!-- <script type="text/javascript" src="https://jonathang89.github.io/TrimbleConnectTest/script.js" /> -->
+
+	<script type="text/javascript" src="https://components.connect.trimble.com/trimble-connect-workspace-api/index.js"></script>
+  
+<script type="text/javascript">
+    console.log("Test log");
+
+    getData();
+
+    async function getData() {
+     API = await TrimbleConnectWorkspace.connect(window.parent, (event, data) => {
+      console.log("Event: ", event, data);
+     });
+
+     API.project.getProject().then(project => {
+      console.log(project); // Trimble Connect project details
+     });
+    }
+ </script>
+	
+</body>
+</html>
